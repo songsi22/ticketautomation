@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import threading
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -30,27 +29,6 @@ class Worker(QThread):
         self.mysqlpasswd = mysql
 
         self.mode = mode
-
-    # def otp(self, otpNum):
-    #     self.otpNum = otpNum
-
-    #     self.w3mfa = QDialog()
-    #
-    # def w3mfa_open(self):
-    #     # 버튼 추가
-    #     btnDialog = QPushButton("OK", self.dialog)
-    #     btnDialog.move(100, 100)
-    #     btnDialog.clicked.connect(self.dialog_close)
-    #
-    #     # QDialog 세팅
-    #     self.dialog.setWindowTitle('Dialog')
-    #     self.dialog.setWindowModality(Qt.ApplicationModal)
-    #     self.dialog.resize(300, 200)
-    #     self.dialog.show()
-    #
-    # # Dialog 닫기 이벤트
-    # def w3mfa_close(self):
-    #     self.dialog.close()
 
     def run(self):
         try:

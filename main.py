@@ -85,7 +85,7 @@ class Worker(QThread):
                     total = self.driver.find_element_by_css_selector(
                         '#form1 > div:nth-child(32) > b:nth-child(3)').text
                     total = int(total)
-                    if '' in self.npasswd:
+                    if len(self.npasswd) == 0:
                         self.message.emit('최소 1개 이상의 변경할 비밀번호를 입력하세요')
                         time.sleep(5)
                         self.driver.close()
@@ -141,7 +141,7 @@ class Worker(QThread):
                                     '#form1 > table > tbody > tr > td:nth-child(1) > div > div > span > input[type=button]').click()
                                 time.sleep(2)
                                 pb_per = (100 / total) * (i + 1)
-                                self.progressbar.emit(pb_per)
+                                self.progressbar.emit(int(pb_per))
                             self.message.emit('모든 티켓 처리 완료')
                             self.driver.quit()
                         except Exception as e:
